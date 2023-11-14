@@ -4,10 +4,11 @@ from recipes import db
 class Filter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filter_name = db.Column(db.String(40), unique=True, nullable=False)
-    recipes = db.relationship("Recipe", backref="filter", cascade="all, delete", lazy=True)
+    recipes = db.relationship("Recipe", backref="filter", cascade="all, delete",
+    lazy=True)
 
     def __repr__(self):
-        return self.category_name
+        return self.filter_name
 
 
 class Recipe(db.Model):
