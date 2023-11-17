@@ -1,41 +1,70 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Add Recipe/h3>
+<h3 class="light-blue-text text-darken-4 center-align">
+  Add Recipe/h3>
 
-<div class="row card-panel grey lighten-5">
+  <div class="row card-panel grey lighten-5">
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <input id="recipe_name" name="recipe_name" minlength="3" maxlength="25" type="text" class="validate"
-                    required>
-                <label for="recipe_name">Recipe Name</label>
-            </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i
+            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+          ></i>
+          <input
+            id="recipe_name"
+            name="recipe_name"
+            minlength="3"
+            maxlength="25"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="recipe_name">Recipe Name</label>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <textarea id="recipe_description" name="recipe_description" minlength="3" maxlength="300" type="text" class="materialize-textarea validate" required></textarea>
-                <label for="recipe_description">Recipe Description</label>
-            </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i
+            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+          ></i>
+          <textarea
+            id="recipe_description"
+            name="recipe_description"
+            minlength="3"
+            maxlength="300"
+            type="text"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="recipe_description">Recipe Description</label>
         </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                <textarea id="main_ingredient" name="main_ingredient" minlength="3" maxlength="50" type="text"
-                    class="materialize-textarea validate" required></textarea>
-                <label for="main_ingredient">Main Ingredient</label>
-            </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i
+            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+          ></i>
+          <textarea
+            id="main_ingredient"
+            name="main_ingredient"
+            minlength="3"
+            maxlength="50"
+            type="text"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="main_ingredient">Main Ingredient</label>
         </div>
-        <div class="row">
-            <div class="col s12 center-align">
-                <button type="submit" class="btn-large light-blue darken-1">
-                    Add Recipe <i class="fas fa-plus-square right"></i>
-                </button>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button type="submit" class="btn-large light-blue darken-1">
+            Add Recipe <i class="fas fa-plus-square right"></i>
+          </button>
         </div>
+      </div>
     </form>
-</div>
+  </div>
 
-{% endblock %}
+  {% endblock %}
+</h3>
