@@ -44,18 +44,46 @@
           <i
             class="fas fa-folder-open prefix light-blue-text text-darken-4"
           ></i>
-          <textarea
+          <input
             id="main_ingredient"
             name="main_ingredient"
             minlength="3"
-            maxlength="50"
+            maxlength="60"
             type="text"
             class="materialize-textarea validate"
             required
-          ></textarea>
+          ></input>
           <label for="main_ingredient">Main Ingredient</label>
         </div>
-      </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="cooking_method" name="cooking_method" minlength="3" maxlength="50" type="text"
+                    class="materialize-textarea validate" required></input>
+                <label for="cooking_method">Cooking Method</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <input id="prep_time" name="prep_time" minlength="3" maxlength="50" type="text"
+                    class="materialize-textarea validate" required></input>
+                <label for="prep_time">Preperation Time</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="filter_id" name="filter_id" class="validate" required>
+                    <option value="" disabled selected>Select Filter</option>
+                    {% for filter in filters %}
+                    <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="filter_id">Filter</label>
+            </div>
+        </div>
       <div class="row">
         <div class="col s12 center-align">
           <button type="submit" class="btn-large light-blue darken-1">
