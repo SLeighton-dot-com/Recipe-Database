@@ -50,3 +50,11 @@ def edit_filter(filter_id):
         db.session.commit()
         return redirect(url_for("filters"))
     return render_template("edit_filter.html", filter=filter)
+
+
+@app.route("/delete_filter/<int:filter_id>")
+def delete_filter(filter_id):
+    filter = Filter.query.get_or_404(filter_id)
+    db.session.delete(filter)
+    db.session.commit()
+    return redirect(url_for("filters"))
