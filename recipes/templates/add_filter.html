@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Add Filter</h3>
+
+<div class="row card-panel grey lighten-5">
+  <form class="col s12" method="POST" action="{{ url_for('add_filter') }}">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <input
+          id="filter_name"
+          name="filter_name"
+          minlength="4"
+          maxlength="30"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="filer_name">Filter Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <button type="submit" class="btn-large light-blue darken-1">
+          Add filter <i class="fas fa-plus-square right"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
