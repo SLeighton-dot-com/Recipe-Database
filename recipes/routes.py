@@ -5,7 +5,8 @@ from recipes.models import Filter, Recipe
 
 @app.route("/")
 def home():
-    return render_template("recipes.html")
+    recipes = list(Recipe.query.order_by(Recipe.id).all())
+    return render_template("recipes.html", recipes=recipes)
 
 
 @app.route("/filters")
