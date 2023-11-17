@@ -76,3 +76,11 @@ def delete_filter(filter_id):
     db.session.delete(filter)
     db.session.commit()
     return redirect(url_for("filters"))
+
+
+@app.route("/delete_recipe/<int:recipe_id>")
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    db.session.delete(recipe)
+    db.session.commit()
+    return redirect(url_for("home"))
