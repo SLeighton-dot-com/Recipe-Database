@@ -40,3 +40,13 @@ def add_filter():
         db.session.commit()
         return redirect(url_for("filters"))
     return render_template("add_filter.html")
+
+
+@app.route("/edit_filter/<int:filter_id>", methods=["GET", "POST"])
+def edit_filter(filter_id):
+    filter = Filter.query.get_or_404(filter_id)
+    if request.method == "POST":
+        filter.filter_name = request.form.get("filter_name")
+        db.session.commit()
+        return redirect(url_for("filters"))
+    return render_template("edit_filter.html", filter=filter)
