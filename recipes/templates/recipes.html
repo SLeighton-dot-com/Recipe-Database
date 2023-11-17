@@ -11,4 +11,23 @@
     </div>
 </div>
 
+<ul class="collapsible">
+    {% for recipe in recipes|sort(attribute="prep_time") %}
+    <li>
+        <div class="collapsible-header white-text light-blue darken-4">
+            <i class="fas fa-caret-down"></i>
+            <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.prep_time }}
+            <i class="fas fa-exclamation-circle light-blue-text text-lighten-2"></i>
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ recipe.category }}</strong>
+            <p>{{ recipe.recipe_description }}</p>
+            <p>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4">Edit</a>
+            </p>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
