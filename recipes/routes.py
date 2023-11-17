@@ -18,7 +18,7 @@ def filters():
 def add_recipe():
     filters = list(Filter.query.order_by(Filter.filter_name).all())
     if request.method == "POST":
-        category = Category(
+        filter = Filter(
             recipe_name=request.form.get("recipe_name"),
             recipe_description=request.form.get("recipe_description"),
             main_ingredient=request.form.get("main_ingredient"),
@@ -32,3 +32,11 @@ def add_recipe():
     return render_template("add_recipe.html")
 
 
+@app.route("/add_filter", methods=["GET", "POST"])
+def add_filter():
+    if request.method == "POST":
+        filter = Filter(filter_name=request.form.get("filter_name"))
+        db.session.add(filter)
+        db.session.commit()
+        return redirect(url_for("filters"))
+    return render_template("add_filter.html")
