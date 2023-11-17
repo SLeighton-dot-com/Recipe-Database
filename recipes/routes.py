@@ -24,12 +24,13 @@ def add_recipe():
             main_ingredient=request.form.get("main_ingredient"),
             cooking_method=request.form.get("cooking_method"),
             prep_time=request.form.get("prep_time"),
-            recipe_owner=request.form.get("recipe_owner")
+            recipe_owner=request.form.get("recipe_owner"),
+            category_id=request.form.get("category_id")
         )
         db.session.add(recipe)
         db.session.commit()
         return redirect(url_for("home"))
-    return render_template("add_recipe.html")
+    return render_template("add_recipe.html", filters=filters)
 
 
 @app.route("/add_filter", methods=["GET", "POST"])
