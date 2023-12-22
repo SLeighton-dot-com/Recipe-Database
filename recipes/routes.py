@@ -43,21 +43,28 @@ def register():
     return render_template("register.html")
 
 
-@app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
-def edit_recipe(recipe_id):
-    recipe = Recipe.query.get_or_404(recipe_id)
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
     filters = list(Filter.query.order_by(Filter.filter_name).all())
     if request.method == "POST":
-        recipe.recipe_name = request.form.get("recipe_name"),
-        recipe.recipe_description = request.form.get("recipe_description"),
-        recipe.main_ingredient = request.form.get("main_ingredient"),
-        recipe.cooking_method = request.form.get("cooking_method"),
-        recipe.prep_time = request.form.get("prep_time"),
-        recipe.recipe_owner = request.form.get("recipe_owner"),
-        recipe.category_id = request.form.get("category_id")
+        prep_time_input = request.form.get("prep_time")
+        try:
+            prep_time_value = int(prep_time_input)
+        except ValueError:
+            prep_time_value = 0
+        recipe = Recipe(
+            recipe_name=request.form.get("recipe_name"),
+            recipe_description=request.form.get("recipe_description"),
+            main_ingredient=request.form.get("main_ingredient"),
+            cooking_method=request.form.get("cooking_method"),
+            prep_time=prep_time_value,
+            recipe_owner=request.form.get("recipe_owner"),
+            category_id=request.form.get("category_id")
+        )
+        db.session.add(recipe)
         db.session.commit()
-    return render_template("edit_recipe.html", recipe=recipe, filters=filters)
-
+        return redirect(url_for("home"))
+    return render_template("add_recipe.html", filters=filters)
 
 
 @app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
