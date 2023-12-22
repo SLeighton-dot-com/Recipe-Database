@@ -78,7 +78,7 @@
                 <select id="filter_id" name="filter_id" class="validate" required>
                     <option value="" disabled selected>Select Filter</option>
                     {% for filter in filters %}
-                    <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
+                        <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
                     {% endfor %}
                 </select>
                 <label for="filter_id">Filter</label>
