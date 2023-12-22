@@ -19,12 +19,17 @@ def filters():
 def add_recipe():
     filters = list(Filter.query.order_by(Filter.filter_name).all())
     if request.method == "POST":
+        prep_time_input = request.form.get("prep_time")
+        try:
+            prep_time_value = int(prep_time_input)
+        except ValueError:
+            prep_time_value = 0
         recipe = Recipe(
             recipe_name=request.form.get("recipe_name"),
             recipe_description=request.form.get("recipe_description"),
             main_ingredient=request.form.get("main_ingredient"),
             cooking_method=request.form.get("cooking_method"),
-            prep_time=request.form.get("prep_time"),
+            prep_time=prep_time_value,
             recipe_owner=request.form.get("recipe_owner"),
             category_id=request.form.get("category_id")
         )
