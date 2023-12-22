@@ -19,7 +19,7 @@ def filters():
 def add_recipe():
     filters = list(Filter.query.order_by(Filter.filter_name).all())
     if request.method == "POST":
-        recipe = recipe(
+        recipe = Recipe(
             recipe_name=request.form.get("recipe_name"),
             recipe_description=request.form.get("recipe_description"),
             main_ingredient=request.form.get("main_ingredient"),
