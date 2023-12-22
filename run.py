@@ -1,5 +1,5 @@
 import os
-from recipes import app
+from recipes import app, db
 
 
 if __name__ == "__main__":
