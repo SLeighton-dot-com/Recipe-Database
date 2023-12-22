@@ -18,7 +18,7 @@ class Recipe(db.Model):
     recipe_description = db.Column(db.Text, nullable=False)
     main_ingredient = db.Column(db.String(20), nullable=False)
     cooking_method = db.Column(db.String(15), nullable=False)
-    prep_time = db.Column(db.Time, nullable=False)
+    prep_time = db.Column(db.Integer, nullable=False)
     recipe_owner = db.Column(db.String(30), nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
         "filter.id", ondelete="CASCADE"), nullable=False)
