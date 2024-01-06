@@ -35,6 +35,7 @@ def register():
         db.session.commit()
         session["user"] = username
         flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
@@ -47,10 +48,29 @@ def login():
         if user and check_password_hash(user.password, password):
             session["user"] = username
             flash(f"Welcome, {username}")
+            return redirect(url_for("profile", username=session["user"]))
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    if "user" not in session or session["user"] != username:
+        flash("You are not authorized to view this profile.")
+        return redirect(url_for("login"))
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        flash("User not found.")
+        return redirect(url_for("login"))
+    return render_template("profile.html", username=user.username)
+
+
+def logout():
+    flash("You have been logged out")
+    session.pop("user", None)
+    return redirect(url_for("login"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
