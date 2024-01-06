@@ -24,7 +24,7 @@
             <p>{{ recipe.recipe_description }}</p>
             <p>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4 edit-btn">Edit</a>
-                <a href="{{ url_for('delete_recipe', filter_id=recipe.id) }}" class="btn red">Delete</a>
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" class="btn red">Delete</a>
             </p>
         </div>
     </li>
