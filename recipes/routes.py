@@ -41,7 +41,7 @@ def login():
         username = request.form.get("username").lower()
         password = request.form.get("password")
         user = User.query.filter_by(username=username).first()
-        if user and check_password_hash(user.password, password):
+        if user and check_password_hash(user.password_hash, password):
             session["user"] = username
             flash(f"Welcome, {username}")
             return redirect(url_for("profile", username=session["user"]))
