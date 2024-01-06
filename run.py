@@ -2,15 +2,15 @@ import os
 from recipes import app, db
 
 
-if __name__ == "__main__":
+def create_tables():
+    with app.app_context():
+        db.create_all()
 
-    def create_tables(self):
-        with app.app_context():
-            db.create_all()
-    create_tables(db)
+
+if __name__ == "__main__":
+    create_tables()
     app.run(
-        host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=os.environ.get("DEBUG")
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", 5000)),
+        debug=os.environ.get("DEBUG", True)
     )
-    
