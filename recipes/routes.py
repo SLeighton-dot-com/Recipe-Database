@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from recipes import app, db
-from recipes.models import Filter, Recipe
+from recipes.models import Filter, Recipe, User
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -21,16 +21,12 @@ def register():
     if request.method == "POST":
         username = request.form.get("username").lower()
         password = request.form.get("password")
-        password2 = request.form.get("password2")
-        if password != password2:
-            flash("Passwords do not match.")
-            return redirect(url_for("register"))
         existing_user = User.query.filter_by(username=username).first()
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
         new_user = User(username=username)
-        new_user.set_password(request.form.get("password"))
+        new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()
         session["user"] = username
