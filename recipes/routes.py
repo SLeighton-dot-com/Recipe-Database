@@ -63,6 +63,7 @@ def profile(username):
     return render_template("profile.html", username=user.username)
 
 
+@app.route("/logout")
 def logout():
     flash("You have been logged out")
     session.pop("user", None)
