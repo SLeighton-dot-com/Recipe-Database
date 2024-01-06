@@ -79,17 +79,19 @@ def add_recipe():
             prep_time_value = int(prep_time_input)
         except ValueError:
             prep_time_value = 0
+        recipe_owner = session['user']
         recipe = Recipe(
             recipe_name=request.form.get("recipe_name"),
             recipe_description=request.form.get("recipe_description"),
             main_ingredient=request.form.get("main_ingredient"),
             cooking_method=request.form.get("cooking_method"),
             prep_time=prep_time_value,
-            recipe_owner=request.form.get("recipe_owner"),
+            recipe_owner=recipe_owner,
             category_id=request.form.get("category_id")
         )
         db.session.add(recipe)
         db.session.commit()
+        flash("Recipe added successfully!")
         return redirect(url_for("home"))
     return render_template("add_recipe.html", filters=filters)
 
