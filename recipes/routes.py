@@ -22,25 +22,35 @@ def register():
         username = request.form.get("username").lower()
         password = request.form.get("password")
         password2 = request.form.get("password2")
-
         if password != password2:
             flash("Passwords do not match.")
             return redirect(url_for("register"))
-            
         existing_user = User.query.filter_by(username=username).first()
-
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
-
         new_user = User(username=username)
         new_user.set_password(request.form.get("password"))
         db.session.add(new_user)
         db.session.commit()
-
         session["user"] = username
         flash("Registration Successful!")
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username").lower()
+        password = request.form.get("password")
+        user = User.query.filter_by(username=username).first()
+        if user and check_password_hash(user.password, password):
+            session["user"] = username
+            flash(f"Welcome, {username}")
+        else:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+    return render_template("login.html")
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
