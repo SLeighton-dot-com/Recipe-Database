@@ -1,10 +1,13 @@
 from recipes import db
 from werkzeug.security import generate_password_hash
 
+
 class Filter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filter_name = db.Column(db.String(40), unique=True, nullable=False)
-    recipes = db.relationship("Recipe", backref="filter", cascade="all, delete",
+    recipes = db.relationship("Recipe",
+                              backref="filter",
+                              cascade="all, delete",
                               lazy=True)
 
     def __repr__(self):
