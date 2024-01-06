@@ -72,6 +72,11 @@ def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     filters = list(Filter.query.order_by(Filter.filter_name).all())
     if request.method == "POST":
+        prep_time_input = request.form.get("prep_time")
+        try:
+            prep_time_value = int(prep_time_input)
+        except ValueError:
+            prep_time_value = 0
         recipe.recipe_name = request.form.get("recipe_name"),
         recipe.recipe_description = request.form.get("recipe_description"),
         recipe.main_ingredient = request.form.get("main_ingredient"),
