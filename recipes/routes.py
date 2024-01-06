@@ -87,7 +87,7 @@ def add_recipe():
             cooking_method=request.form.get("cooking_method"),
             prep_time=prep_time_value,
             recipe_owner=recipe_owner,
-            category_id=request.form.get("category_id")
+            category_id=request.form.get("filter_id")
         )
         db.session.add(recipe)
         db.session.commit()
