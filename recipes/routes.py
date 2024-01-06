@@ -106,15 +106,16 @@ def edit_recipe(recipe_id):
             prep_time_value = int(prep_time_input)
         except ValueError:
             prep_time_value = 0
-        recipe.recipe_name = request.form.get("recipe_name"),
-        recipe.recipe_description = request.form.get("recipe_description"),
-        recipe.main_ingredient = request.form.get("main_ingredient"),
-        recipe.cooking_method = request.form.get("cooking_method"),
-        recipe.prep_time = request.form.get("prep_time"),
-        recipe.recipe_owner = request.form.get("recipe_owner"),
+        recipe.recipe_name = request.form.get("recipe_name")
+        recipe.recipe_description = request.form.get("recipe_description")
+        recipe.main_ingredient = request.form.get("main_ingredient")
+        recipe.cooking_method = request.form.get("cooking_method")
+        recipe.prep_time = prep_time_value
+        recipe.recipe_owner = request.form.get("recipe_owner")
         recipe.category_id = request.form.get("category_id")
         db.session.commit()
-    return render_template("edit_recipe.html", recipe=recipe, filters=filters)
+        flash("Recipe updated successfully!")
+    return render_template("recipes.html", recipe=recipe, filters=filters)
 
 
 @app.route("/add_filter", methods=["GET", "POST"])
