@@ -15,10 +15,14 @@
     {% for recipe in recipes|sort(attribute="prep_time") %}
     <li>
         <div class="collapsible-header white-text light-blue darken-4 flex-container">
-            <i class="fas fa-caret-down"></i>
-            <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.prep_time }} Mins
-            <i class="light-blue-text text-lighten-2"></i>
-            <span class="right">{{ recipe.filter.filter_name }}</span>
+            <div class="left-align">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.prep_time }} Mins
+                <i class="light-blue-text text-lighten-2"></i>
+            </div>
+            <div class="right-align">
+                {{ recipe.filter.filter_name }}
+            </div>
         </div>
         <div class="collapsible-body">
             <p>{{ recipe.prep_time }} Mins {{ recipe.cooking_method }}</p>

@@ -24,4 +24,13 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+
+.left-align {
+    flex-grow: 1;
+}
+
+.right-align {
+    margin-left: auto;
 }
