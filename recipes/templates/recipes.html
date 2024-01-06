@@ -14,7 +14,7 @@
 <ul class="collapsible">
     {% for recipe in recipes|sort(attribute="prep_time") %}
     <li>
-        <div class="collapsible-header white-text light-blue darken-4">
+        <div class="collapsible-header white-text light-blue darken-4 flex-container">
             <i class="fas fa-caret-down"></i>
             <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.prep_time }} Mins
             <i class="light-blue-text text-lighten-2"></i>
