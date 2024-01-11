@@ -20,12 +20,15 @@
                 <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.prep_time }} Mins
                 <i class="light-blue-text text-lighten-2"></i>
             </div>
+            <div class="center-align">
+            {{ recipe.recipe_owner }}
+            </div>
             <div class="right-align">
                 {{ recipe.filter.filter_name }}
             </div>
         </div>
         <div class="collapsible-body">
-            <p>{{ recipe.prep_time }} Mins {{ recipe.cooking_method }}</p>
+            <p>{{ recipe.prep_time }} Mins - {{ recipe.cooking_method }}</p>
             <p>{{ recipe.recipe_description }}</p>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4">Edit</a>
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" class="btn red">Delete</a>
