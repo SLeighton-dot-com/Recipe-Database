@@ -46,6 +46,11 @@ main {
     color: dimgray;
 }
 
+table {
+    border-collapse: none;
+    width: auto;
+}
+
 .table-2 {
-    padding-left: 30px;
+    padding-left: 10px;
 }
