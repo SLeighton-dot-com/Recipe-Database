@@ -29,8 +29,15 @@ main {
 
 .left-align {
     flex-grow: 1;
+    text-align: left;
+}
+
+.center-align {
+    flex: 1;
+    text-align: center;
 }
 
 .right-align {
-    margin-left: auto;
+    flex: 1;
+    text-align: right;
 }
