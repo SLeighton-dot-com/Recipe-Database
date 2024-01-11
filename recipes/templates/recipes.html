@@ -21,7 +21,7 @@
                 <i class="light-blue-text text-lighten-2"></i>
             </div>
             <div class="center-align">
-            <P>Recipe Owner:</P> {{ recipe.recipe_owner }}
+            <P>Recipe Owner: {{ recipe.recipe_owner }}</P>
             </div>
             <div class="right-align">
                 {{ recipe.filter.filter_name }}
@@ -38,6 +38,8 @@
                     <td class="table-2">{{ recipe.cooking_method }}</td>
                 </tr>
             </table>
+                <p class="title">Recipe description</p>
+                <p>{{ recipe.recipe_description }}</p>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4">Edit</a>
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" class="btn red">Delete</a>
             </p>
