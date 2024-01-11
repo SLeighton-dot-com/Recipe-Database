@@ -41,3 +41,7 @@ main {
     flex: 1;
     text-align: right;
 }
+
+.title {
+    color: dimgray;
+}
