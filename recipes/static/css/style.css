@@ -56,6 +56,10 @@ table {
     padding-left: 10px;
 }
 
+.collapsible-header i {
+    margin-right: 0rem;
+}
+
 @media screen and (max-width: 600px) {
     .flex-container {
         flex-direction: column;
