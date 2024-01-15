@@ -14,7 +14,7 @@
 <body>
 
         <header>
-            <nav class="purple lighten-2">
+            <nav class="deep-blue">
                 <div class="nav-wrapper">
                     <a href="{{ url_for('home') }}" class="brand-logo">Recipe Book</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
@@ -52,7 +52,7 @@
             {% if messages %}
             {% for message in messages %}
             <div class="row flashes">
-                <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                <h4 class="vibrant center-align">{{ message }}</h4>
             </div>
             {% endfor %}
             {% endif %}
@@ -64,7 +64,7 @@
             {% endblock %}
         </main>
 
-        <footer class="page-footer purple lighten-2">
+        <footer class="page-footer deep-blue">
             <div class="footer-copyright">
                 <div class="container">
                     For educational purposes only
