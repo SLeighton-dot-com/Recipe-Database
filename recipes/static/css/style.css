@@ -4,6 +4,26 @@ body {
     flex-direction: column;
 }
 
+.deep-blue {
+    color: #003366;
+}
+
+.vibrant {
+    color: #ff6b6b;
+}
+
+.text {
+    color: #333333;
+}
+
+.off-white {
+    color: #f5f5f5;
+}
+
+.teal {
+    color: #3ab0a2;
+}
+
 main {
     flex: 1 0 auto;
 }
