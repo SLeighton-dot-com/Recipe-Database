@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col s12 center-align">
-        <a href="{{ url_for('add_recipe') }}" class="btn-large teal">
+        <a href="{{ url_for('add_recipe') }}" class="btn-large text">
             Add Recipe <i class="fas fa-plus-square right"></i>
         </a>
     </div>
@@ -14,7 +14,7 @@
 <ul class="collapsible">
     {% for recipe in recipes|sort(attribute="prep_time") %}
     <li>
-        <div class="collapsible-header text flex-container">
+        <div class="collapsible-header deep-blue flex-container">
             <div class="left-align">
                 <i class="fas fa-caret-down"></i>
                 <strong>{{ recipe.recipe_name }} : {{ recipe.prep_time }} Mins</strong>
