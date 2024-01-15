@@ -1,14 +1,14 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">
+<h3 class="text center-align">
   Add Recipe</h3>
 
-  <div class="row card-panel grey lighten-5">
+  <div class="row card-panel off-white">
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
       <div class="row">
         <div class="input-field col s12">
           <i
-            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+            class="fas fa-folder-open prefix teal"
           ></i>
           <input
             id="recipe_name"
@@ -25,7 +25,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i
-            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+            class="fas fa-folder-open prefix teal"
           ></i>
           <textarea
             id="recipe_description"
@@ -42,7 +42,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i
-            class="fas fa-folder-open prefix light-blue-text text-darken-4"
+            class="fas fa-folder-open prefix teal"
           ></i>
           <input
             id="main_ingredient"
@@ -58,7 +58,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-folder-open prefix teal"></i>
                 <input id="cooking_method" name="cooking_method" minlength="3" maxlength="50" type="text"
                     class="materialize-textarea validate" required></input>
                 <label for="cooking_method">Cooking Method</label>
@@ -66,7 +66,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-folder-open prefix teal"></i>
                 <input id="prep_time" name="prep_time" minlength="1" maxlength="3" type="number"
                     class="materialize-textarea validate" placeholder="Enter time in minutes" required></input>
                 <label for="prep_time">Preperation Time</label>
@@ -74,7 +74,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-folder-open prefix teal"></i>
                 <select id="filter_id" name="filter_id" class="validate" required>
                     <option value="" disabled selected>Select Filter</option>
                     {% for filter in filters %}
@@ -86,7 +86,7 @@
         </div>
       <div class="row">
         <div class="col s12 center-align">
-          <button type="submit" class="btn-large light-blue darken-1">
+          <button type="submit" class="btn-large teal">
             Add Recipe <i class="fas fa-plus-square right"></i>
           </button>
         </div>
