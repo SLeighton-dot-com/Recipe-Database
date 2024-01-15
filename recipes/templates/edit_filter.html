@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit Filter</h3>
+<h3 class="textcenter-align">Edit Filter</h3>
 
 <div class="row card-panel grey lighten-5">
   <form class="col s12" method="POST" action="{{ url_for('edit_filter', filter_id=filter.id) }}">
     <div class="row">
       <div class="input-field col s12">
-        <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+        <i class="fas fa-folder-open prefix text></i>
         <input
           id="filter_name"
           name="filter_name"
@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col s12 center-align">
-        <button type="submit" class="btn-large light-blue darken-1">
+        <button type="submit" class="btn-large teal">
           Edit filter <i class="fas fa-edit right"></i>
         </button>
       </div>
