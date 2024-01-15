@@ -5,11 +5,12 @@ body {
 }
 
 .deep-blue {
-    color: #003366;
+    background-color: #003366;
+    color: #f5f5f5;
 }
 
 .vibrant {
-    color: #ff6b6b;
+    background-color: #ff6b6b;
 }
 
 .text {
@@ -17,11 +18,11 @@ body {
 }
 
 .off-white {
-    color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 
 .teal {
-    color: #3ab0a2;
+    background-color: #3ab0a2 !important;
 }
 
 main {
