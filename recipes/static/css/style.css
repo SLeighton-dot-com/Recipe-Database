@@ -4,10 +4,6 @@ body {
     flex-direction: column;
 }
 
-.brand-logo {
-    width: 160px;
-}
-
 main {
     flex: 1 0 auto;
 }
@@ -58,6 +54,12 @@ table {
 
 .collapsible-header i {
     margin-right: 0rem;
+}
+
+@media screen and (max-width: 992px) {
+    .brand-logo {
+        width: 160px;
+    }
 }
 
 @media screen and (max-width: 600px) {
