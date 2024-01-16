@@ -1,9 +1,14 @@
+<!-- Extending a base HTML template -->
 {% extends "base.html" %}
+
+<!-- Extending a base HTML template -->
 {% block content %}
 
 <div class="row">
     <div class="col s12 m8 offset-m2">
+        <!-- Creating a card-like panel -->
         <div class="card-panel">
+            <!-- Display the username's profile heading -->
             <h3 class="center-align text">
                 {{ username }}'s Profile
             </h3>
@@ -11,4 +16,5 @@
     </div>
 </div>
 
+<!-- Ending the 'content' block -->
 {% endblock %}
