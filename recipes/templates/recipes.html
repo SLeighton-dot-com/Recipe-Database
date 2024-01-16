@@ -1,34 +1,47 @@
+<!-- Extending a base HTML template -->
 {% extends "base.html" %}
+
+<!-- Defining a block named 'content' -->
 {% block content %}
 
+<!-- Heading for the recipes page -->
 <h3 class="text center-align">Recipes</h3>
 
 <div class="row">
     <div class="col s12 center-align">
+        <!-- Button to add a new recipe -->
         <a href="{{ url_for('add_recipe') }}" class="btn-large soft-teal text">
             Add Recipe <i class="fas fa-plus-square right"></i>
         </a>
     </div>
 </div>
 
+<!-- Creating a collapsible list for recipes -->
 <ul class="collapsible">
+    <!-- Looping through recipes and sorting them by 'prep_time' attribute -->
     {% for recipe in recipes|sort(attribute="prep_time") %}
     <li>
+        <!-- Header section for each recipe item -->
         <div class="collapsible-header deep-blue flex-container">
             <div class="left-align">
                 <i class="fas fa-caret-down"></i>
+                <!-- Displaying recipe name and preparation time -->
                 <strong>{{ recipe.recipe_name }} : {{ recipe.prep_time }} Mins</strong>
             </div>
             <div class="center-align">
-            <P>Recipe Owner: {{ recipe.recipe_owner }}</P>
+                <!-- Displaying recipe owner's information -->
+                <P>Recipe Owner: {{ recipe.recipe_owner }}</P>
             </div>
             <div class="right-align">
+                <!-- Displaying the filter associated with the recipe -->
                 {{ recipe.filter.filter_name }}
             </div>
         </div>
         <div class="collapsible-body">
+            <!-- Body section for each recipe item -->
             <table>
                 <tr>
+                    <!-- Displaying preparation time and cooking method -->
                     <td class="title">Time to prepare</td>
                     <td class="title table-2">Cooking method</td>
                 </tr>
@@ -37,14 +50,19 @@
                     <td class="table-2">{{ recipe.cooking_method }}</td>
                 </tr>
             </table>
+                <!-- Displaying recipe description -->
                 <p class="title">Recipe description</p>
                 <p>{{ recipe.recipe_description }}</p>
+                <!-- Button to edit the recipe -->
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4">Edit</a>
+                <!-- Button to delete the recipe -->
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" class="btn red">Delete</a>
             </p>
         </div>
     </li>
+    <!-- End of the 'for' loop -->
     {% endfor %}
 </ul>
 
+<!-- Ending the 'content' block -->
 {% endblock %}
