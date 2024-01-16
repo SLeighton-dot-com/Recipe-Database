@@ -10,7 +10,7 @@
 <!-- Creating a card-like panel with a light grey background -->
 <div class="row card-panel grey lighten-5">
     <!-- Starting a form with method 'POST' and action URL pointing to 'edit_recipe' route -->
-    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_id) }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
         <div class="row">
             <div class="input-field col s12">
                 <!-- Icon for input field -->
