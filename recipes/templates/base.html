@@ -1,30 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <!-- This is the Head element that holds the links for Materialize css library, style.css stylesheet, the links to the favicon 
+    icons for various devices, the page description and title of the page -->
 <head>
+
+    <!-- This sets the character encoding to UTF-8 to display and handle various characters and symbols -->
     <meta charset="UTF-8">
+
+    <!-- This instructs Internet Exlorer to use the latest available version to display the webpage correctly -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- This sets the page zoom level to 1.0 on smaller screens helping the page display correctly -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- This is a brief description or summary of the content on a webpage that maybe visable on search engines result pages -->
     <meta name="description" content="An online, user contributed recipe book">
+
+    <!-- Favicon settings for browser tab icon for various devices -->
+    <!-- https://www.favicon-generator.org/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+
+    <!-- This is the link to the Materialize css library cdn version 1.0.0 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
+
+    <!-- This is the link to the style.css sheet located inside the css folder, inside the static folder -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>Recipe Book</title>
 </head>
 
 <body>
 
+        <!-- Header Section -->
         <header>
+            <!-- Navigation Bar -->
             <nav class="deep-blue">
                 <div class="nav-wrapper">
+                    <!-- Website name -->
                     <a href="{{ url_for('home') }}" class="brand-logo">Recipe Book</a>
+                    <!-- Side Navigation Trigger for Mobile View -->
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                    <!-- Navigation Links for Larger Screens -->
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <!-- Conditional Navigation Items Based on User Session -->
                         {% if session.user %}
                             <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
                             <li><a href="{{ url_for('filters') }}">Filters</a></li>
@@ -38,8 +61,11 @@
                 </div>
             </nav>
         
+            <!-- Side Navigation for Mobile View -->
             <ul class="sidenav" id="mobile-demo">
+                <!-- Repeated Navigation Items for Mobile View -->
                 <li><a href="{{ url_for('home') }}">Home</a></li>
+                <!-- Conditional Navigation Items Based on User Session -->
                 {% if session.user %}
                     <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
                     <li><a href="{{ url_for('filters') }}">Filters</a></li>
@@ -52,10 +78,12 @@
             </ul>
         </header>
 
+        <!-- Section for Flash Messages -->
         <section>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
+            <!-- Flash Message Display -->
             <div class="row flashes">
                 <h4 class="vibrant center-align">{{ message }}</h4>
             </div>
@@ -64,21 +92,31 @@
             {% endwith %}
         </section>
 
+        <!-- Main Content Section -->
         <main class="container">
+            <!-- Content Block for Dynamic Content Insertion -->
             {% block content %}
             {% endblock %}
         </main>
 
+        <!-- Footer Section -->
         <footer class="page-footer deep-blue">
+            <!-- Footer Content -->
             <div class="footer-copyright">
                 <div class="container">
+                    <!-- Disclaimer or Additional Information -->
                     For educational purposes only
                 </div>
             </div>
         </footer>
 
+    <!-- This is the link to the Materialize js library cdn version 1.0.0 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- This is the link to the script.js sheet located inside the js folder, inside the static folder -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <!-- This is the link to the Font Awesome js library -->
     <script src="https://kit.fontawesome.com/af6bf0a804.js" crossorigin="anonymous"></script>
 
 </body>
