@@ -1,88 +1,92 @@
+/* Global Body Styles */
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+    display: flex; /* Enables flexbox layout */
+    min-height: 100vh; /* Ensures minimum height of the viewport */
+    flex-direction: column; /* Sets flex items to a columnar layout */
 }
 
+/* Deep Blue Theme Styling */
 .deep-blue {
-    background-color: #003366;
-    color: #f5f5f5;
+    background-color: #003366; /* Dark blue background */
+    color: #f5f5f5; /* Light grey text for contrast */
 }
 
+/* Vibrant Red/Pink Theme Styling */
 .vibrant {
-    background-color: #ff6b6b;
+    background-color: #ff6b6b; /* Vibrant red/pink background */
 }
 
+/* Default Text Color */
 .text {
-    color: #333333;
+    color: #333333; /* Dark grey text color */
 }
 
+/* Off White Background Styling */
 .off-white {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5; /* Off-white background color */
 }
 
+/* Soft Teal Background Styling */
 .soft-teal {
-    background-color: #3ab0a2;
+    background-color: #3ab0a2; /* Soft teal background color */
 }
 
+/* Main Element Flex Properties */
 main {
-    flex: 1 0 auto;
+    flex: 1 0 auto; /* Flex grow, shrink, and basis properties */
 }
 
+/* Text Shadow Effect */
 .text-shadow {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Shadow effect for text */
 }
 
+/* Style for Flash Messages Headings */
 .flashes h4 {
-    line-height: 2;
+    line-height: 2; /* Line height for better readability */
 }
 
+/* Button Margin Styling */
 .btn {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Bottom margin for buttons */
 }
 
+/* Flex Container for Layout */
 .flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: space-between; /* Space distribution between items */
+    align-items: center; /* Vertical alignment of items */
+    width: 100%; /* Full width */
 }
 
-.left-align {
-    text-align: left;
-}
-
-.center-align {
-    text-align: center;
-}
-
-.right-align {
-    text-align: center;
-}
-
+/* Title Color Styling */
 .title {
-    color: dimgray;
+    color: dimgray; /* Dim gray color for titles */
 }
 
+/* Table Styling */
 table {
-    border-collapse: separate;
-    width: auto;
+    border-collapse: separate; /* Collapsing borders */
+    width: auto; /* Auto width based on content */
 }
 
+/* Additional Padding for Table-2 */
 .table-2 {
-    padding-left: 10px;
+    padding-left: 10px; /* Left padding */
 }
 
+/* Collapsible Header Icon Margin */
 .collapsible-header i {
-    margin-right: 0rem;
+    margin-right: 0rem; /* No right margin */
 }
 
+/* Adjust logo width on smaller screens less than 992px */
 @media screen and (max-width: 992px) {
     .brand-logo {
         width: 160px;
     }
 }
 
+/* Stack items vertically on small screens less than 600px */
 @media screen and (max-width: 600px) {
     .flex-container {
         flex-direction: column;
