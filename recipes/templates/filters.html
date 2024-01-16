@@ -1,10 +1,15 @@
+<!-- Extending a base HTML template -->
 {% extends "base.html" %}
+
+<!-- Defining a block named 'content' -->
 {% block content %}
 
+<!-- Heading for the form -->
 <h3 class="text center-align">Filters</h3>
 
 <div class="row">
     <div class="col s12 center-align">
+        <!-- Button to add a new filter -->
         <a href="{{ url_for('add_filter') }}" class="btn-large soft-teal text ">
             Add Filter <i class="fas fa-plus-square right"></i>
         </a>
@@ -12,19 +17,26 @@
 </div>
 
 <div class="row">
+    <!-- Loop through each 'filter' in the 'filters' list -->
     {% for filter in filters %}
     <div class="col s12 m6 l3">
+        <!-- Stylish card for displaying each filter -->
         <div class="card deep-blue">
             <div class="card-content white-text">
+                <!-- Display the name of the 'filter' as a card title -->
                 <span class="card-title">{{ filter.filter_name }}</span>
             </div>
             <div class="card-action">
+                <!-- Button to edit a filter -->
                 <a href="{{ url_for('edit_filter', filter_id=filter.id) }}" class="btn green accent-4 edit-btn">Edit</a>
+                <!-- Button to delete a filter -->
                 <a href="{{ url_for('delete_filter', filter_id=filter.id) }}" class="btn red">Delete</a>
             </div>
         </div>
     </div>
+    <!-- End of the 'for' loop -->
     {% endfor %}
 </div>
 
+<!-- Ending the 'content' block -->
 {% endblock %}
