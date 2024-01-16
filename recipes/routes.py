@@ -111,7 +111,6 @@ def edit_recipe(recipe_id):
         recipe.main_ingredient = request.form.get("main_ingredient")
         recipe.cooking_method = request.form.get("cooking_method")
         recipe.prep_time = prep_time_value
-        recipe.recipe_owner = request.form.get("recipe_owner")
         recipe.category_id = request.form.get("category_id")
         db.session.commit()
         flash("Recipe updated successfully!")
