@@ -1,28 +1,55 @@
+<!-- Extending a base HTML template -->
 {% extends "base.html" %}
+
+<!-- Defining a block named 'content' -->
 {% block content %}
 
+<!-- Heading for the registration page -->
 <h3 class="center-align">Register</h3>
 
 <div class="row">
+    <!-- Starting a form with method 'POST' and action URL pointing to 'register' route -->
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+        <!-- Creating a card-like panel for the registration form -->
         <div class="card-panel">
             <div class="row">
                 <div class="input-field col s12">
+                    <!-- Icon for username input -->
                     <i class="fas fa-user-plus prefix text"></i>
-                    <input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate">
+                    <!-- Input field for 'username' with validation attributes -->
+                    <input 
+                      id="username" 
+                      name="username" 
+                      type="text" 
+                      minlength="5"
+                      maxlength="15" 
+                      pattern="^[a-zA-Z0-9]{5,15}$" 
+                      class="validate"
+                      >
+                    <!-- Label for the input field -->
                     <label for="username">Username</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
+                    <!-- Icon for password input -->
                     <i class="fas fa-user-lock prefix text"></i>
-                    <input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate">
+                    <!-- Input field for 'password' with validation attributes -->
+                    <input 
+                      id="password" 
+                      name="password" 
+                      type="password" 
+                      minlength="5"
+                      maxlength="15" 
+                      pattern="^[a-zA-Z0-9]{5,15}$" 
+                      class="validate"
+                      >
+                    <!-- Label for the input field -->
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row">
+                <!-- Submit button with label and icon -->
                 <button type="submit" class="col s12 btn-large soft-teal text-shadow">
                     Register <i class="fas fa-sign-in-alt"></i>
                 </button>
@@ -34,10 +61,12 @@
 <div class="row">
     <div class="col s12">
         <p class="center-align">
+            <!-- Link to the login page for already registered users -->
             Already Registered?
             <a href="{{ url_for('login') }}" class="text">Login</a>
         </p>
     </div>
 </div>
 
+<!-- Ending the 'content' block -->
 {% endblock %}
