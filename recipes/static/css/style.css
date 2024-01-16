@@ -31,6 +31,11 @@ body {
     background-color: #3ab0a2; /* Soft teal background color */
 }
 
+/* border around input areas */
+.input-box {
+    border: 2px solid #9e9e9e;
+}
+
 /* Main Element Flex Properties */
 main {
     flex: 1 0 auto; /* Flex grow, shrink, and basis properties */
