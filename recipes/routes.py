@@ -115,7 +115,7 @@ def edit_recipe(recipe_id):
         recipe.category_id = request.form.get("category_id")
         db.session.commit()
         flash("Recipe updated successfully!")
-    return render_template("edit_recipes.html", recipe=recipe, filters=filters)
+    return render_template("edit_recipe.html", recipe=recipe, filters=filters)
 
 
 @app.route("/add_filter", methods=["GET", "POST"])
