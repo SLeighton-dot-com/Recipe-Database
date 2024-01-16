@@ -111,7 +111,7 @@ def edit_recipe(recipe_id):
         recipe.main_ingredient = request.form.get("main_ingredient")
         recipe.cooking_method = request.form.get("cooking_method")
         recipe.prep_time = prep_time_value
-        recipe.category_id = request.form.get("filter_id")
+        filter_id_input = request.form.get("filter_id")
         if filter_id_input:
             recipe.category_id = filter_id_input
         db.session.commit()
