@@ -116,6 +116,7 @@ def edit_recipe(recipe_id):
             recipe.category_id = filter_id_input
         db.session.commit()
         flash("Recipe updated successfully!")
+        return redirect(url_for("home"))
     return render_template("edit_recipe.html", recipe=recipe, filters=filters)
 
 
