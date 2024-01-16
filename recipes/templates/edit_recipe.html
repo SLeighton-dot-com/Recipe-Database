@@ -1,104 +1,148 @@
-{% extends "base.html" %} {% block content %}
+<!-- Extending a base HTML template -->
+{% extends "base.html" %} 
 
-<h3 class="text center-align">
-  Edit Recipe</h3>
+<!-- Defining a block named 'content' -->
+{% block content %}
 
-  <div class="row card-panel grey lighten-5">
-<form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_id) }}">
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <input
-            id="recipe_name"
-            name="recipe_name"
-            value="{{ recipe.recipe_name }}"
-            minlength="3"
-            maxlength="25"
-            type="text"
-            class="validate"
-            required
-          />
-          <label for="recipe_name">Recipe Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <textarea
-            id="recipe_description"
-            name="recipe_description"
-            minlength="3"
-            maxlength="300"
-            type="text"
-            class="materialize-textarea validate"
-            required>
-          {{- recipe.recipe_description -}}</textarea>
-          <label for="recipe_description">Recipe Description</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <input
-            id="main_ingredient"
-            name="main_ingredient"
-            value="{{ recipe.main_ingredient }}"
-            minlength="3"
-            maxlength="60"
-            type="text"
-            class="materialize-textarea validate"
-            required
-          ></input>
-          <label for="main_ingredient">Main Ingredient</label>
-        </div>
+<!-- Heading for the form -->
+<h3 class="text center-align">Edit Recipe</h3>
+
+<!-- Creating a card-like panel with a light grey background -->
+<div class="row card-panel grey lighten-5">
+    <!-- Starting a form with method 'POST' and action URL pointing to 'edit_recipe' route -->
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_id) }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'recipe_name' with initial value from 'recipe' object and validation attributes -->
+                <input
+                  id="recipe_name"
+                  name="recipe_name"
+                  value="{{ recipe.recipe_name }}"
+                  minlength="3"
+                  maxlength="25"
+                  type="text"
+                  class="validate"
+                  required
+                />
+                <!-- Label for the input field -->
+                <label for="recipe_name">Recipe Name</label>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <input id="cooking_method" name="cooking_method" value="{{ recipe.cooking_method }}" minlength="3" maxlength="50" type="text"
-                    class="materialize-textarea validate" required></input>
+                <!-- Textarea for 'recipe_description' with initial value from 'recipe' object and validation attributes -->
+                <textarea
+                  id="recipe_description"
+                  name="recipe_description"
+                  minlength="3"
+                  maxlength="300"
+                  type="text"
+                  class="materialize-textarea validate"
+                  required>
+                  {{- recipe.recipe_description -}}
+                </textarea>
+                <!-- Label for the input field -->
+                <label for="recipe_description">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'main_ingredient' with initial value from 'recipe' object and validation attributes -->
+                <input
+                  id="main_ingredient"
+                  name="main_ingredient"
+                  value="{{ recipe.main_ingredient }}"
+                  minlength="3"
+                  maxlength="60"
+                  type="text"
+                  class="materialize-textarea validate"
+                  required
+                ></input>
+                <!-- Label for the input field -->
+                <label for="main_ingredient">Main Ingredient</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'cooking_method' with initial value from 'recipe' object and validation attributes -->
+                <input 
+                  id="cooking_method" 
+                  name="cooking_method" 
+                  value="{{ recipe.cooking_method }}" 
+                  minlength="3" 
+                  maxlength="50" 
+                  type="text"
+                  class="materialize-textarea validate" 
+                  required
+                ></input>
+                <!-- Label for the input field -->
                 <label for="cooking_method">Cooking Method</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <input id="prep_time" name="prep_time" value="{{ recipe.prep_time }}" minlength="3" maxlength="50" type="text"
-                    class="materialize-textarea validate" required></input>
+                <!-- Input field for 'prep_time' with initial value from 'recipe' object and validation attributes -->
+                <input 
+                  id="prep_time" 
+                  name="prep_time" 
+                  value="{{ recipe.prep_time }}" 
+                  minlength="3" 
+                  maxlength="50" 
+                  type="text"
+                  class="materialize-textarea validate" 
+                  required
+                ></input>
+                <!-- Label for the input field -->
                 <label for="prep_time">Preperation Time</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <select id="filter_id" name="filter_id" class="validate" required>
+                <select 
+                  id="filter_id" 
+                  name="filter_id" 
+                  class="validate" 
+                  required
+                >
+                    <!-- Creating a dropdown select input with default disabled 'Select Filter' option -->
                     <option value="" disabled selected>Select Filter</option>
+                    <!-- Looping through filters to generate dropdown options -->
                     {% for filter in filters %}
+                        <!-- Looping through filters to generate dropdown options -->
                         {% if filter == recipe.filter %}
                             <option value="{{ filter.id }}" selected>{{ filter.filter_name }}</option>
+                        <!-- If not selected, show the filter as an option -->
                         {% else %}
                             <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
+                <!-- Label for the input field -->
                 <label for="filter_id">Filter</label>
             </div>
         </div>
-      <div class="row">
-        <div class="col s12 center-align">
-          <button type="submit" class="btn-large soft-teal">
-            Edit Recipe <i class="fas fa-plus-square right"></i>
-          </button>
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- Submit button with label and edit icon -->
+                <button type="submit" class="btn-large soft-teal">
+                  Edit Recipe <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
         </div>
-      </div>
     </form>
-  </div>
+</div>
 
-  {% endblock %}
-</h3>
+<!-- Ending the 'content' block -->
+{% endblock %}
