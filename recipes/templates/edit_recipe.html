@@ -25,7 +25,7 @@
                   type="text"
                   class="validate"
                   required
-                />
+                >
                 <!-- Label for the input field -->
                 <label for="recipe_name">Recipe Name</label>
             </div>
@@ -40,7 +40,6 @@
                   name="recipe_description"
                   minlength="3"
                   maxlength="300"
-                  type="text"
                   class="materialize-textarea validate"
                   required>
                   {{- recipe.recipe_description -}}
@@ -63,7 +62,7 @@
                   type="text"
                   class="materialize-textarea validate"
                   required
-                ></input>
+                >
                 <!-- Label for the input field -->
                 <label for="main_ingredient">Main Ingredient</label>
             </div>
@@ -82,7 +81,7 @@
                   type="text"
                   class="materialize-textarea validate" 
                   required
-                ></input>
+                >
                 <!-- Label for the input field -->
                 <label for="cooking_method">Cooking Method</label>
             </div>
@@ -96,12 +95,12 @@
                   id="prep_time" 
                   name="prep_time" 
                   value="{{ recipe.prep_time }}" 
-                  minlength="3" 
-                  maxlength="50" 
-                  type="text"
+                  min="1" 
+                  max="3" 
+                  type="number"
                   class="materialize-textarea validate" 
                   required
-                ></input>
+                >
                 <!-- Label for the input field -->
                 <label for="prep_time">Preperation Time</label>
             </div>
