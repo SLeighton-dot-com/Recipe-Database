@@ -1,98 +1,138 @@
-{% extends "base.html" %} {% block content %}
+<!-- Extending a base HTML template -->
+{% extends "base.html" %} 
 
-<h3 class="text center-align">
-  Add Recipe</h3>
+<!-- Defining a block named 'content' -->
+{% block content %}
 
-  <div class="row card-panel off-white">
+<!-- Heading for the form -->
+<h3 class="text center-align">Add Recipe</h3>
+
+<!-- Creating a card-like panel with an off-white background -->
+<div class="row card-panel off-white">
+    <!-- Starting a form with method 'POST' and action URL pointing to 'add_recipe' route -->
     <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <input
-            id="recipe_name"
-            name="recipe_name"
-            minlength="3"
-            maxlength="25"
-            type="text"
-            class="validate"
-            required
-          />
-          <label for="recipe_name">Recipe Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <textarea
-            id="recipe_description"
-            name="recipe_description"
-            minlength="3"
-            maxlength="300"
-            type="text"
-            class="materialize-textarea validate"
-            required
-          ></textarea>
-          <label for="recipe_description">Recipe Description</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i
-            class="fas fa-folder-open prefix text"
-          ></i>
-          <input
-            id="main_ingredient"
-            name="main_ingredient"
-            minlength="3"
-            maxlength="60"
-            type="text"
-            class="materialize-textarea validate"
-            required
-          ></input>
-          <label for="main_ingredient">Main Ingredient</label>
-        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'recipe_name' with validation attributes -->
+                <input
+                  id="recipe_name"
+                  name="recipe_name"
+                  minlength="3"
+                  maxlength="25"
+                  type="text"
+                  class="validate"
+                  required
+                />
+                <!-- Label for the input field -->
+                <label for="recipe_name">Recipe Name</label>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <input id="cooking_method" name="cooking_method" minlength="3" maxlength="50" type="text"
-                    class="materialize-textarea validate" required></input>
+                <!-- Textarea for 'recipe_description' with validation attributes -->
+                <textarea
+                  id="recipe_description"
+                  name="recipe_description"
+                  minlength="3"
+                  maxlength="300"
+                  type="text"
+                  class="materialize-textarea validate"
+                  required
+                ></textarea>
+                <!-- Label for the textarea -->
+                <label for="recipe_description">Recipe Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'main_ingredient' with validation attributes -->
+                <input
+                  id="main_ingredient"
+                  name="main_ingredient"
+                  minlength="3"
+                  maxlength="60"
+                  type="text"
+                  class="materialize-textarea validate"
+                  required
+                ></input>
+                <!-- Label for the input field -->
+                <label for="main_ingredient">Main Ingredient</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!-- Icon for input field -->
+                <i class="fas fa-folder-open prefix text"></i>
+                <!-- Input field for 'cooking_method' with validation attributes -->
+                <input 
+                  id="cooking_method" 
+                  name="cooking_method" 
+                  minlength="3" 
+                  maxlength="50" 
+                  type="text"
+                  class="materialize-textarea validate" 
+                  required
+                  ></input>
+                <!-- Label for the input field -->
                 <label for="cooking_method">Cooking Method</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <input id="prep_time" name="prep_time" minlength="1" maxlength="3" type="number"
-                    class="materialize-textarea validate" placeholder="Enter time in minutes" required></input>
+                <!-- Input field for 'prep_time' (numeric) with validation attributes -->
+                <input 
+                  id="prep_time" 
+                  name="prep_time" 
+                  minlength="1" 
+                  maxlength="3" 
+                  type="number"
+                  class="materialize-textarea validate" 
+                  placeholder="Enter time in minutes" 
+                  required
+                  ></input>
+                <!-- Label for the input field -->
                 <label for="prep_time">Preperation Time</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- Icon for input field -->
                 <i class="fas fa-folder-open prefix text"></i>
-                <select id="filter_id" name="filter_id" class="validate" required>
-                    <option value="" disabled selected>Select Filter</option>
-                    {% for filter in filters %}
-                        <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
-                    {% endfor %}
+                <!-- Dropdown select for 'filter_id' with validation and options populated from 'filters' -->
+                <select 
+                  id="filter_id" 
+                  name="filter_id" 
+                  class="validate" 
+                  required
+                >
+                <option value="" disabled selected>Select Filter</option>
+                {% for filter in filters %}
+                    <option value="{{ filter.id }}">{{ filter.filter_name }}</option>
+                {% endfor %}
                 </select>
+                <!-- Label for the dropdown select -->
                 <label for="filter_id">Filter</label>
             </div>
         </div>
-      <div class="row">
-        <div class="col s12 center-align">
-          <button type="submit" class="btn-large soft-teal text">
-            Add Recipe <i class="fas fa-plus-square right"></i>
-          </button>
+        <div class="row">
+            <div class="col s12 center-align">
+                <!-- Submit button with label and icon -->
+                <button type="submit" class="btn-large soft-teal text">
+                    Add Recipe <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
         </div>
-      </div>
+    <!-- Closing the form -->
     </form>
-  </div>
+</div>
 
-  {% endblock %}
-</h3>
+<!-- Ending the 'content' block -->
+{% endblock %}
