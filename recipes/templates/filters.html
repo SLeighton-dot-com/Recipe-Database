@@ -22,11 +22,11 @@
     <div class="col s12 m6 l3">
         <!-- Stylish card for displaying each filter -->
         <div class="card deep-blue">
-            <div class="card-content white-text">
+            <div class="card-content white-text center-align">
                 <!-- Display the name of the 'filter' as a card title -->
                 <span class="card-title">{{ filter.filter_name }}</span>
             </div>
-            <div class="card-action">
+            <div class="card-action center-align">
                 <!-- Button to edit a filter -->
                 <a href="{{ url_for('edit_filter', filter_id=filter.id) }}" class="btn green accent-4 edit-btn">Edit</a>
                 <!-- Button to delete a filter -->
