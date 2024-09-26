@@ -1,6 +1,11 @@
 # Import the database instance and password hashing utility
 from recipes import db
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+
+# Define a database model for Users
+def check_password(self, password):
+    return check_password_hash(self.password_hash, password)
+
 
 
 # Define a database model for Filters (like categories for recipes)
